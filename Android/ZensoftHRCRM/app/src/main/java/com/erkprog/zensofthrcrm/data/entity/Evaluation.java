@@ -6,8 +6,17 @@ public class Evaluation {
 
   @SerializedName("id")
   private Integer id;
-  @SerializedName("rating")
-  private Integer rating;
+  @SerializedName("rate")
+  private Integer rate;
+
+  public Integer getRate() {
+    return rate;
+  }
+
+  public void setRate(Integer rate) {
+    this.rate = rate;
+  }
+
   @SerializedName("criteria")
   private Criteria criteria;
 
@@ -17,14 +26,6 @@ public class Evaluation {
 
   public void setId(Integer id) {
     this.id = id;
-  }
-
-  public Integer getRating() {
-    return rating;
-  }
-
-  public void setRating(Integer rating) {
-    this.rating = rating;
   }
 
   public Criteria getCriteria() {

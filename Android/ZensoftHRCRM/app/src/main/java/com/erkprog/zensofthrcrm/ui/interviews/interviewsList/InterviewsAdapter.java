@@ -38,10 +38,10 @@ public class InterviewsAdapter extends RecyclerView.Adapter<InterviewsAdapter.In
   }
 
   @Override
-  public void onBindViewHolder(@NonNull InterviewViewHolder holder, int position) {
+  public void onBindViewHolder(@NonNull InterviewViewHolder holder, final int position) {
 
     final Interview interview = mInterviews.get(position);
-    Department department = interview.getRequest().getDepartment();
+    Department department = interview.getCandidate().getPosition().getDepartment();
     Candidate candidate = interview.getCandidate();
 
     holder.department.setText(department.getName() != null ? department.getName() : "No Department");
@@ -54,7 +54,7 @@ public class InterviewsAdapter extends RecyclerView.Adapter<InterviewsAdapter.In
     holder.itemView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        recyclerItemClickListener.onItemClick();
+        recyclerItemClickListener.onItemClick(position);
       }
     });
 

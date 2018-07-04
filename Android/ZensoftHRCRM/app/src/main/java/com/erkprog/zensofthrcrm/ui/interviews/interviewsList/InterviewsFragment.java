@@ -33,13 +33,13 @@ public class InterviewsFragment extends Fragment implements InterviewsContract.V
   public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-
   }
 
   private RecyclerItemClickListener recyclerItemClickListener = new RecyclerItemClickListener() {
     @Override
-    public void onItemClick() {
+    public void onItemClick(Integer position) {
       Intent intent = new Intent(getActivity(), InterviewDetail.class);
+      intent.putExtra("interviewId", position);
       startActivity(intent);
     }
   };

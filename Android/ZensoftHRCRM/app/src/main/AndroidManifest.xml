@@ -22,9 +22,7 @@
       </intent-filter>
     </activity>
     <activity android:name=".ui.candidates.candidateDetail.CandidateDetail"></activity>
-    <activity
-        android:name=".ui.interviews.interviewDetail.InterviewDetail"
-        android:label="@string/interviews"></activity>
+    <activity android:name=".ui.interviews.interviewDetail.InterviewDetail"></activity>
   </application>
 
 </manifest>

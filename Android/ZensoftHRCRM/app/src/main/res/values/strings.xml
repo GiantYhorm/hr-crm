@@ -20,4 +20,7 @@
   <string name="years_of_experience">Years of Experience</string>
   <string name="department">Department</string>
   <string name="attachment">attachment</string>
+  <string name="initial">Initial</string>
+  <string name="date">01/01/2018</string>
+  <string name="interviewers">pam@zensoft.io, serg@zensoft.io</string>
 </resources>
