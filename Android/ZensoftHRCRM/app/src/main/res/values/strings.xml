@@ -23,4 +23,6 @@
   <string name="initial">Initial</string>
   <string name="date">01/01/2018</string>
   <string name="interviewers">pam@zensoft.io, serg@zensoft.io</string>
+  <string name="candidate">Candidate</string>
+  <string name="date_label">Date</string>
 </resources>
