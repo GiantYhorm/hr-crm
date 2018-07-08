@@ -25,11 +25,13 @@ class Base(Configuration):
         'rest_framework',
         'django_filters',
         'corsheaders',
+
         'rest_framework.authtoken',
         'social_django',
         'rest_social_auth',
         'oauth2_provider',
         'rest_framework_social_oauth2',
+        'fcm_django',
 
         'apps.candidates',
         'apps.departments',
@@ -49,6 +51,12 @@ class Base(Configuration):
     CSRF_COOKIE_SECURE = True
     CORS_ORIGIN_ALLOW_ALL = True
 
+    FCM_SERVER_KEY = values.SecretValue().to_python(os.environ.get('DJANGO_FCM_SERVER_KEY'))
+
+    FCM_DJANGO_SETTINGS = {
+        "FCM_SERVER_KEY": FCM_SERVER_KEY,
+    }
+
     AUTHENTICATION_BACKENDS = (
         'social_core.backends.facebook.FacebookOAuth2',
         'social_core.backends.google.GoogleOAuth2',
@@ -64,7 +72,32 @@ class Base(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'corsheaders.middleware.CorsMiddleware',
+        'django.middleware.common.CommonMiddleware',
     ]
+
+    CORS_ORIGIN_WHITELIST = values.ListValue()
+
+    CORS_ALLOW_METHODS = (
+        'DELETE',
+        'GET',
+        'OPTIONS',
+        'PATCH',
+        'POST',
+        'PUT',
+    )
+
+    CORS_ALLOW_HEADERS = (
+        'accept',
+        'accept-encoding',
+        'authorization',
+        'content-type',
+        'dnt',
+        'origin',
+        'user-agent',
+        'x-csrftoken',
+        'x-requested-with',
+    )
 
     ROOT_URLCONF = 'urls'
 
