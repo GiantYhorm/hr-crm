@@ -48,12 +48,15 @@ public class InterviewsFragment extends Fragment implements InterviewsContract.V
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
     View v = inflater.inflate(R.layout.fragment_interviews_list, container, false);
+    mContext = v.getContext();
+
 
     mPresenter = new InterviewsPresenter(this, new InterviewsRepository(this.getContext()), v.getContext());
+
     recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_all_interviews);
     layoutManager = new LinearLayoutManager(v.getContext());
     recyclerView.setLayoutManager(layoutManager);
-    mContext = v.getContext();
+
 
     mPresenter.getInterviews(mContext);
 

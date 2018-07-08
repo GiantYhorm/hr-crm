@@ -70,7 +70,7 @@ public class CandidateDetailFragment extends Fragment implements CandidateDetail
     mYearsOfExp = v.findViewById(R.id.cd_years_xp);
 
     mCvsAdapter = new CvsAdapter(getActivity(), new ArrayList<Cv>());
-    mCommentsAdapter = new CommentsAdapter(getActivity(), new ArrayList<Comment>());
+    mCommentsAdapter = new CommentsAdapter(new ArrayList<Comment>());
     mInterviewsAdapter = new InterviewsAdapter(getActivity(), new ArrayList<CandidateInterviewItem>());
   }
 
@@ -178,8 +178,8 @@ public class CandidateDetailFragment extends Fragment implements CandidateDetail
         item.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              Cv cvItem = (Cv) cvsAdapter.getItem(finalI);
-              onCvItemClicked(cvItem);
+            Cv cvItem = (Cv) cvsAdapter.getItem(finalI);
+            onCvItemClicked(cvItem);
           }
         });
         mLayout.addView(item);

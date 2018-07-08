@@ -20,15 +20,14 @@ public class InterviewDetailPresenter implements InterviewDetailContract.Present
     this.mContext = mContext;
   }
 
+  @Override
+  public void getDetailedInterview(Context mContext, Integer interviewId) {
+    mRepository.getInterviewDetails(this, mContext, interviewId);
+  }
 
   @Override
   public void onDestroy() {
 
-  }
-
-  @Override
-  public void getDetailedInterview(Context mContext, Integer interviewId) {
-    mRepository.getInterviewDetails(this, mContext, interviewId);
   }
 
   @Override
@@ -38,6 +37,7 @@ public class InterviewDetailPresenter implements InterviewDetailContract.Present
 
   @Override
   public void onFailure(Throwable t) {
+    // something on failure
     Log.d("me", "onFailure: " + t.getMessage());
   }
 }

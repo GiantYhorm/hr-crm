@@ -4,62 +4,48 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
 
 import com.erkprog.zensofthrcrm.R;
-import com.erkprog.zensofthrcrm.data.entity.Interviewer;
+import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
+import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
 
-class InterviewersAdapter extends BaseAdapter {
-  private Context mContext;
-  private LayoutInflater mLayoutInflater;
-  private List<Interviewer> mInterviewerList;
-  private EvaluationsAdapter mEvaluationsAdapter;
+public class InterviewersAdapter extends ExpandableRecyclerViewAdapter<InterviewerViewHolder, CriteriaViewHolder> {
 
-  InterviewersAdapter(Context context, List<Interviewer> interviewerList, EvaluationsAdapter
-      mEvaluationsAdapter) {
-    mContext = context;
-    mInterviewerList = interviewerList;
-    mLayoutInflater = LayoutInflater.from(mContext);
-    this.mEvaluationsAdapter = mEvaluationsAdapter;
-  }
-
-  public void setData(List<Interviewer> newData) {
-    mInterviewerList = newData;
-    this.notifyDataSetChanged();
+  private Context context;
+  public InterviewersAdapter(Context context, List<? extends ExpandableGroup> groups) {
+    super(groups);
+    this.context = context;
   }
 
   @Override
-  public int getCount() {
-    return mInterviewerList.size();
+  public InterviewerViewHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
+    View view = LayoutInflater.from(parent.getContext())
+        .inflate(R.layout.interviewer_item, parent, false);
+    return new InterviewerViewHolder(view);
   }
 
   @Override
-  public Object getItem(int position) {
-    return mInterviewerList.get(position);
+  public CriteriaViewHolder onCreateChildViewHolder(ViewGroup parent, int viewType) {
+    View view = LayoutInflater.from(parent.getContext())
+        .inflate(R.layout.criteria_item, parent, false);
+    return new CriteriaViewHolder(view);
   }
 
   @Override
-  public long getItemId(int position) {
-    return 0;
+  public void onBindChildViewHolder(CriteriaViewHolder holder, int flatPosition,
+                                    ExpandableGroup group, int childIndex) {
+    final SubTitle subTitle = ((Title) group).getItems().get(childIndex);
+    holder.setCriteriaName(subTitle.getCriteriaName());
+    holder.setRate(subTitle.getRate());
+    holder.setComment(subTitle.getComment());
   }
 
   @Override
-  public View getView(int position, View convertView, ViewGroup parent) {
-    View v = mLayoutInflater.inflate(R.layout.interview_interviewer_comment_item, parent, false);
+  public void onBindGroupViewHolder(InterviewerViewHolder holder, int flatPosition, ExpandableGroup group) {
 
-    TextView mComment = v.findViewById(R.id.interview_interviewer_comment);
-    TextView mInterviewer = v.findViewById(R.id.interviewer_label);
+    holder.setInterviewerMail(group.getTitle());
 
-    Interviewer interviewer = (Interviewer) getItem(position);
-    mEvaluationsAdapter.setData(interviewer.getEvaluationList());
-
-    mComment.setText(interviewer.getComment());
-    mInterviewer.setText(interviewer.getUser().getEmail());
-
-
-    return v;
   }
 }

@@ -12,8 +12,9 @@ public class Interviewer {
   private User user;
   @SerializedName("comment")
   private String comment;
+
   @SerializedName("evaluations")
-  private List<Evaluation> evaluationList;
+  private List<Evaluation> EvaluaionList;
 
   public Integer getId() {
     return id;
@@ -39,11 +40,12 @@ public class Interviewer {
     this.comment = comment;
   }
 
-  public List<Evaluation> getEvaluationList() {
-    return evaluationList;
+  public List<Evaluation> getEvaluaionList() {
+    return EvaluaionList;
   }
 
-  public void setEvaluationList(List<Evaluation> evaluationList) {
-    this.evaluationList = evaluationList;
+  public void setEvaluaionList(List<Evaluation> evaluaionList) {
+    EvaluaionList = evaluaionList;
   }
+
 }

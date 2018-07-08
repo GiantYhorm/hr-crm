@@ -64,7 +64,7 @@ public class CandidateDetailPresenter implements CandidateDetailContract.Present
 
   @Override
   public void onCreateInterviewClicked() {
-    if (!mView.isActive() || (mCandidate == null)){
+    if (!mView.isActive() || (mCandidate == null)) {
       return;
     }
 
