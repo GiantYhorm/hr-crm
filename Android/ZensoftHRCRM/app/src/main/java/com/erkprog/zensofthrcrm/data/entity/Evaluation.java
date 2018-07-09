@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class Evaluation {
 
-  @SerializedName("id")
   private Integer id;
   @SerializedName("rate")
   private Integer rate;

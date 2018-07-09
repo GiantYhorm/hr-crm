@@ -10,7 +10,7 @@ public class Title extends ExpandableGroup<SubTitle> {
   private String email;
 
   public Title(String email, List<SubTitle> items) {
-    super(email,items);
+    super(email, items);
     this.email = email;
   }
 

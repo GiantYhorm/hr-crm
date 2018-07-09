@@ -33,7 +33,6 @@ public class InterviewDetailFragment extends Fragment implements InterviewDetail
   private RecyclerView recyclerView;
   private RecyclerView.LayoutManager layoutManager;
 
-  private LinearLayout mLayout;
   private TextView mInitial;
   private TextView mDepartment;
   private TextView mDate;
@@ -51,8 +50,7 @@ public class InterviewDetailFragment extends Fragment implements InterviewDetail
 
     initUI(v);
 
-    mPresenter = new InterviewDetailPresenter(this, new InterviewsRepository(this.getContext()),
-        v.getContext());
+    mPresenter = new InterviewDetailPresenter(this, new InterviewsRepository(this.getContext()));
     mPresenter.getDetailedInterview(mContext, getArguments().getInt(EXTRA_INTERVIEW_ID));
 
     recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_all_interviewers);
@@ -61,7 +59,7 @@ public class InterviewDetailFragment extends Fragment implements InterviewDetail
   }
 
   private void initUI(View v) {
-    mLayout = v.findViewById(R.id.cd_root_layout);
+
     mDepartment = v.findViewById(R.id.i_department);
     mInitial = v.findViewById(R.id.i_initial);
     mDate = v.findViewById(R.id.i_date);
@@ -71,19 +69,21 @@ public class InterviewDetailFragment extends Fragment implements InterviewDetail
   @Override
   public void showInterviewDetails(Interview interview) {
 
-    Log.d("me", "showInterviewDetails: " + interview.getCandidate().getPosition().getDepartment().getName());
-    mDepartment.setText(interview.getCandidate().getPosition().getDepartment().getName());
-    mInitial.setText(interview.getCandidate().getFirstName().toString() + " " + interview.getCandidate()
-        .getLastName().toString());
+    if (interview.getCandidate() != null) {
+      if (interview.getCandidate().getPosition().getDepartment() != null)
+        mDepartment.setText(interview.getCandidate().getPosition().getDepartment().getName());
+
+      String name = String.format("%1s 2%s", interview.getCandidate().getFirstName(), interview
+          .getCandidate().getLastName());
+      mInitial.setText(name);
+    }
     mDate.setText(interview.getDate());
-
-    List<Title> list = getList(interview.getInterviewersList());
-
-
-
-    InterviewersAdapter adapter = new InterviewersAdapter(mContext, list);
-    recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-    recyclerView.setAdapter(adapter);
+    if (interview.getInterviewersList() != null) {
+      List<Title> list = getList(interview.getInterviewersList());
+      InterviewersAdapter adapter = new InterviewersAdapter(mContext, list);
+      recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+      recyclerView.setAdapter(adapter);
+    }
 
 
   }
@@ -93,16 +93,14 @@ public class InterviewDetailFragment extends Fragment implements InterviewDetail
     for (int i = 0; i < interviewers.size(); i++) {
       List<SubTitle> subTitles = new ArrayList<>();
       SubTitle subTitle;
-
-      for (int j = 0; j< interviewers.get(i).getEvaluaionList().size(); j++){
-        Evaluation evaluation = interviewers.get(i).getEvaluaionList().get(j);
-        subTitle = new SubTitle(evaluation.getCriteria().getName(),evaluation.getRate());
-        if(j==0)
-        subTitle.setComment(interviewers.get(i).getComment());
-        subTitles.add(subTitle);
-      }
-
-
+      if (interviewers.get(i).getEvaluaionList() != null)
+        for (int j = 0; j < interviewers.get(i).getEvaluaionList().size(); j++) {
+          Evaluation evaluation = interviewers.get(i).getEvaluaionList().get(j);
+          subTitle = new SubTitle(evaluation.getCriteria().getName(), evaluation.getRate());
+          if (j == 0)
+            subTitle.setComment(interviewers.get(i).getComment());
+          subTitles.add(subTitle);
+        }
       Title model = new Title(interviewers.get(i).getUser().getEmail(),
           subTitles);
       list.add(model);

@@ -11,13 +11,12 @@ public class InterviewDetailPresenter implements InterviewDetailContract.Present
 
   private InterviewDetailContract.View mView;
   private InterviewDetailContract.Repository mRepository;
-  private Context mContext;
 
-  public InterviewDetailPresenter(InterviewDetailContract.View mView, InterviewDetailContract.Repository
-      mRepository, Context mContext) {
-    this.mView = mView;
-    this.mRepository = mRepository;
-    this.mContext = mContext;
+  public InterviewDetailPresenter(InterviewDetailContract.View view, InterviewDetailContract
+      .Repository
+      repository) {
+    this.mView = view;
+    this.mRepository = repository;
   }
 
   @Override

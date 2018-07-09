@@ -14,6 +14,7 @@ import java.util.List;
 public class InterviewersAdapter extends ExpandableRecyclerViewAdapter<InterviewerViewHolder, CriteriaViewHolder> {
 
   private Context context;
+
   public InterviewersAdapter(Context context, List<? extends ExpandableGroup> groups) {
     super(groups);
     this.context = context;
@@ -37,15 +38,18 @@ public class InterviewersAdapter extends ExpandableRecyclerViewAdapter<Interview
   public void onBindChildViewHolder(CriteriaViewHolder holder, int flatPosition,
                                     ExpandableGroup group, int childIndex) {
     final SubTitle subTitle = ((Title) group).getItems().get(childIndex);
-    holder.setCriteriaName(subTitle.getCriteriaName());
-    holder.setRate(subTitle.getRate());
-    holder.setComment(subTitle.getComment());
+    if (subTitle.getCriteriaName() != null)
+      holder.setCriteriaName(subTitle.getCriteriaName());
+    if (subTitle.getRate() != null)
+      holder.setRate(subTitle.getRate());
+    if (subTitle.getComment() != null)
+      holder.setComment(subTitle.getComment());
   }
 
   @Override
   public void onBindGroupViewHolder(InterviewerViewHolder holder, int flatPosition, ExpandableGroup group) {
-
-    holder.setInterviewerMail(group.getTitle());
+    if (group.getTitle() != null)
+      holder.setInterviewerMail(group.getTitle());
 
   }
 }

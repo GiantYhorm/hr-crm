@@ -26,14 +26,14 @@
           android:gravity="center|left"
           android:layout_height="wrap_content"
           android:layout_marginLeft="10dp"
-          tools:text="@string/interviewer" />
+          tools:text="@string/interviewer"/>
 
       <ImageView
           android:id="@+id/arrow"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_alignParentRight="true"
-          android:src="@drawable/ic_arrow_down" />
+          android:src="@drawable/ic_arrow_down"/>
 
     </RelativeLayout>
 

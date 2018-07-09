@@ -27,7 +27,9 @@ public class InterviewsRepository implements InterviewsContract.Repository,
     call.enqueue(new Callback<InterviewsResponse>() {
       @Override
       public void onResponse(Call<InterviewsResponse> call, Response<InterviewsResponse> response) {
-        onFinishedListener.onFinished(response.body().getInterviewList());
+        InterviewsResponse body = response.body();
+        if (body != null && body.getInterviewList() != null)
+          onFinishedListener.onFinished(response.body().getInterviewList());
       }
 
       @Override
@@ -46,7 +48,13 @@ public class InterviewsRepository implements InterviewsContract.Repository,
     call.enqueue(new Callback<Interview>() {
       @Override
       public void onResponse(Call<Interview> call, Response<Interview> response) {
-        onFinishedListener.onFinished(response.body());
+        Interview body = response.body();
+        if (body != null && body.getId() != null && body.getCandidate() != null
+            && body.getStatus() != null && body.getDate() != null)
+          onFinishedListener.onFinished(response.body());
+        else {
+          // response is null
+        }
       }
 
       @Override
