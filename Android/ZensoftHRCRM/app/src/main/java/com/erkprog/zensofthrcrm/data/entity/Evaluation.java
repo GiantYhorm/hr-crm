@@ -2,6 +2,8 @@ package com.erkprog.zensofthrcrm.data.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Evaluation {
 
   private Integer id;
@@ -16,8 +18,16 @@ public class Evaluation {
     this.rate = rate;
   }
 
+  public List<Criteria> getCriterias() {
+    return criterias;
+  }
+
+  public void setCriterias(List<Criteria> criterias) {
+    this.criterias = criterias;
+  }
+
   @SerializedName("criteria")
-  private Criteria criteria;
+  private List<Criteria> criterias;
 
   public Integer getId() {
     return id;
@@ -27,11 +37,4 @@ public class Evaluation {
     this.id = id;
   }
 
-  public Criteria getCriteria() {
-    return criteria;
-  }
-
-  public void setCriteria(Criteria criteria) {
-    this.criteria = criteria;
-  }
 }
