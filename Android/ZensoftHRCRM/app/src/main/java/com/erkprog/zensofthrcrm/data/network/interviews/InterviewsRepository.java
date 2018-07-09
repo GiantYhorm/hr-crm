@@ -16,8 +16,6 @@ import retrofit2.Response;
 public class InterviewsRepository implements InterviewsContract.Repository,
     InterviewDetailContract.Repository {
 
-  private final Context mContext;
-
 
   @Override
   public void getInterviewsList(final InterviewsContract.Repository.OnFinishedListener onFinishedListener, Context mContext) {
@@ -65,7 +63,4 @@ public class InterviewsRepository implements InterviewsContract.Repository,
   }
 
 
-  public InterviewsRepository(Context context) {
-    mContext = context;
-  }
 }
