@@ -15,7 +15,7 @@ public class Candidate {
   @SerializedName("email")
   private String email;
   @SerializedName("position")
-  private Position position;
+  private List<Position> positions = null;
   @SerializedName("experience")
   private Float experience;
   @SerializedName("level")
@@ -28,11 +28,18 @@ public class Candidate {
   private List<Cv> cvs = null;
 
 
-
   @SerializedName("interviews")
   private List<Interview> interviews = null;
   @SerializedName("comments")
   private List<Comment> comments = null;
+
+  public List<Position> getPositions() {
+    return positions;
+  }
+
+  public void setPositions(List<Position> positions) {
+    this.positions = positions;
+  }
 
   public Integer getId() {
     return id;
@@ -66,13 +73,6 @@ public class Candidate {
     this.email = email;
   }
 
-  public Position getPosition() {
-    return position;
-  }
-
-  public void setPosition(Position position) {
-    this.position = position;
-  }
 
   public Float getExperience() {
     return experience;
