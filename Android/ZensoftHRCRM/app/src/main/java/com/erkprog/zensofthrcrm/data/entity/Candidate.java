@@ -20,6 +20,8 @@ public class Candidate {
   private Float experience;
   @SerializedName("level")
   private String level;
+  @SerializedName("skype")
+  private String skype;
   @SerializedName("status")
   private Integer status;
   @SerializedName("phone")
@@ -41,6 +43,14 @@ public class Candidate {
 
   public Integer getId() {
     return id;
+  }
+
+  public String getSkype() {
+    return skype;
+  }
+
+  public void setSkype(String skype) {
+    this.skype = skype;
   }
 
   public void setId(Integer id) {
