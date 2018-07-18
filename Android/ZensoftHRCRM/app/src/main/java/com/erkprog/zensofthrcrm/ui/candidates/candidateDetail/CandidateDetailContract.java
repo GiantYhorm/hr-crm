@@ -14,6 +14,8 @@ public interface CandidateDetailContract {
 
     void startCreateInterview(Candidate candidate);
 
+    void startSendMessage(Candidate candidate);
+
     void startEditCandidate(Candidate candidate);
 
   }
@@ -21,6 +23,8 @@ public interface CandidateDetailContract {
   interface Presenter extends ILifecycle<View> {
 
     void onCreateInterviewClicked();
+
+    void onSendMessageClicked();
 
     void onEditCandidateClicked();
 

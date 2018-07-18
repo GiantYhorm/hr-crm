@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:scrollbars="none"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+  <LinearLayout
+      android:id="@+id/se_root_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:orientation="vertical">
+    <TextView
+        android:id="@+id/se_subject_label"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"
+        android:text="@string/subject_label"/>
+
+    <EditText
+        android:id="@+id/se_subject"
+        android:singleLine="true"
+        android:hint="@string/subject_label"
+        android:inputType="text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/main_attributes"
+        tools:text="@string/subject"
+        />
+
+  <LinearLayout
+      android:id="@+id/se_message_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:orientation="horizontal">
+    <TextView
+        android:id="@+id/se_message_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/message_label"/>
+    <Button
+        android:id="@+id/se_use_templates"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="80dp"
+        android:text="@string/btn_use_templates"/>
+  </LinearLayout>
+
+    <EditText
+        android:id="@+id/se_message"
+        android:hint="@string/message"
+        android:inputType="text"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/main_attributes"
+        tools:text="@string/message"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/se_attachments_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+      <TextView
+          android:id="@+id/se_attachments_label"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:text="@string/attachment_label"/>
+      <Button
+          android:id="@+id/se_attach"
+          style="@style/Widget.AppCompat.Button.Colored"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:layout_marginStart="80dp"
+          android:text="@string/btn_attachment"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/se_save"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_send"/>
+  </LinearLayout>
+
+  <ProgressBar
+      android:id="@+id/se_progress_bar"
+      style="?android:attr/progressBarStyle"
+      android:layout_width="@dimen/progress_bar_size"
+      android:layout_height="@dimen/progress_bar_size"
+      android:layout_marginBottom="8dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@+id/se_root_layout"
+      app:layout_constraintTop_toTopOf="@+id/se_root_layout"/>
+
+</android.support.constraint.ConstraintLayout>
+    </ScrollView>

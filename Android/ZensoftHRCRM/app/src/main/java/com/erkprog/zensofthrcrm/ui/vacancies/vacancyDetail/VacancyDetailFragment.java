@@ -169,6 +169,7 @@ public class VacancyDetailFragment extends Fragment implements VacancyDetailCont
   public void onClick(View v) {
     switch (v.getId()) {
       case R.id.v_publish:
+        mPresenter.onPublishClicked();
         break;
       case R.id.v_edit:
         break;

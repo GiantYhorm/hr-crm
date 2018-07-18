@@ -77,6 +77,16 @@ public class CandidateDetailPresenter implements CandidateDetailContract.Present
   }
 
   @Override
+  public void onSendMessageClicked() {
+    if (!isViewAttached() || (mCandidate == null)) {
+      return;
+    }
+
+    mView.startSendMessage(mCandidate);
+
+  }
+
+  @Override
   public void onEditCandidateClicked() {
     if (!isViewAttached()) {
       return;

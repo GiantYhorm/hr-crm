@@ -60,6 +60,15 @@
   <string name="working_condition">Working condition</string>
   <string name="btn_publish">Publish</string>
   <string name="btn_edit">Edit</string>
+  <string name="btn_send">Send</string>
+  <string name="subject_label">Subject</string>
+  <string name="subject">Job offer</string>
+  <string name="message_label">Message</string>
+  <string name="btn_use_templates">Use templates</string>
+  <string name="message">We glad to invite you to the interview...</string>
+  <string name="attachment_label">Attachments</string>
+  <string name="btn_attachment">Attach</string>
+
 
   <string name="name">Name</string>
   <string name="title">Title</string>

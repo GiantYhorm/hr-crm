@@ -20,6 +20,8 @@ public class VacancyDetailPresenter implements VacancyDetailContract.Presenter {
   private VacancyDetailContract.View mView;
   private ApiInterface mService;
   private SQLiteHelper mSQLiteHelper;
+  private Vacancy mVacancy;
+
 
   VacancyDetailPresenter(ApiInterface service, SQLiteHelper
       sqLiteHelper) {
@@ -56,6 +58,13 @@ public class VacancyDetailPresenter implements VacancyDetailContract.Presenter {
   public void getVacancyLocal(int vacancyId) {
     Vacancy vacancy = mSQLiteHelper.getVacancy(String.valueOf(vacancyId));
     mView.showVacancyDetails(vacancy);
+  }
+
+  @Override
+  public void onPublishClicked() {
+    if(mVacancy != null){
+      // publish request
+    }
   }
 
 

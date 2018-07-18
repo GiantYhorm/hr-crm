@@ -194,9 +194,13 @@ public class CandidateDetailFragment extends Fragment implements CandidateDetail
 
   @Override
   public void startCreateInterview(Candidate candidate) {
-    Log.d(TAG, "startCreateInterview: " + candidate.getId());
     Intent intent = CreateInterview.newIntent(getActivity(), candidate);
     startActivity(intent);
+  }
+
+  @Override
+  public void startSendMessage(Candidate candidate) {
+
   }
 
   @Override
@@ -257,9 +261,9 @@ public class CandidateDetailFragment extends Fragment implements CandidateDetail
         mPresenter.onEditCandidateClicked();
         break;
       case R.id.cd_message_button:
-        //TODO: implement sending message
-        showMessage("Send message");
+        mPresenter.onSendMessageClicked();
         break;
+
       default:
         break;
     }

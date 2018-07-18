@@ -19,5 +19,7 @@ public interface VacancyDetailContract extends BaseView {
 
     void getVacancyLocal(int vacancyId);
 
+    void onPublishClicked();
+
   }
 }
