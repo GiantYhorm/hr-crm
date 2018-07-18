@@ -6,7 +6,7 @@ import com.erkprog.zensofthrcrm.ui.ILifecycle;
 
 import java.util.List;
 
-public interface VacanciesContract extends BaseView{
+public interface VacanciesContract extends BaseView {
 
   interface View extends BaseView {
 

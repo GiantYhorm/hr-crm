@@ -271,7 +271,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
       savePositions(new ArrayList<Position>(Arrays.asList(requests.get(i)
           .getPosition())));
 
-     }
+    }
 
     SQLiteDatabase db = this.getWritableDatabase();
     ContentValues cv = new ContentValues();
@@ -335,7 +335,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     db.close();
   }
-
 
 
   public void savePositions(List<Position> positions) {
@@ -1576,7 +1575,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
           if (interviewsId != null)
             candidate.setInterviews(getInterviews(Converter.convertStringToList(interviewsId)));
         }
-        if(commentsIdIndex>0) {
+        if (commentsIdIndex > 0) {
           String commentsId = cursor.getString(commentsIdIndex);
 
           if (commentsId != null)
@@ -1638,7 +1637,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         String address = cursor.getString(addressIndex);
         String city = cursor.getString(cityIndex);
 
-        if (worConsIndex> 0) {
+        if (worConsIndex > 0) {
           String worConsIds = cursor.getString(worConsIndex);
           if (worConsIds != null)
             vacancy.setWorkConditions((Converter.convertStringToList

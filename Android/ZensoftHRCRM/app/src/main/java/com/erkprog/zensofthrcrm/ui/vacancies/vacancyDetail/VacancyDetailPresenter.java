@@ -62,7 +62,7 @@ public class VacancyDetailPresenter implements VacancyDetailContract.Presenter {
 
   @Override
   public void onPublishClicked() {
-    if(mVacancy != null){
+    if (mVacancy != null) {
       // publish request
     }
   }

@@ -255,12 +255,12 @@ public class EditCandidateFragment extends Fragment implements EditCandidateCont
     dismissProgress();
     Bundle arguments = new Bundle();
     arguments.putInt(ARGUMENT_CANDIDATE_ID, candidateId);
-    FragmentManager fragmentManager =  getFragmentManager();
+    FragmentManager fragmentManager = getFragmentManager();
     CandidateDetailFragment fragment = new CandidateDetailFragment();
     fragment.setArguments(arguments);
-    if(fragmentManager != null)
-    fragmentManager.beginTransaction().replace(R.id.candidate_detail_container, fragment)
-        .commit();
+    if (fragmentManager != null)
+      fragmentManager.beginTransaction().replace(R.id.candidate_detail_container, fragment)
+          .commit();
   }
 
 }

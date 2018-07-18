@@ -33,8 +33,6 @@ public interface ApiInterface {
   @GET("vacancies/{id}")
   Call<Vacancy> getDetailedVacancy(@Path("id") int id);
 
-  // @post sending email
-
   @GET("interviews")
   Single<InterviewsResponse> getInterviews();
 

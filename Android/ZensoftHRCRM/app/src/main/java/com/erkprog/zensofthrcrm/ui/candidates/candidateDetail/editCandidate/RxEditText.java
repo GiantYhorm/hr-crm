@@ -28,8 +28,8 @@ public class RxEditText {
 
       @Override
       public void afterTextChanged(Editable editable) {
-        if(editable != null)
-        subject.onNext(String.valueOf(editable));
+        if (editable != null)
+          subject.onNext(String.valueOf(editable));
       }
     });
 

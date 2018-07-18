@@ -71,7 +71,6 @@ public class RequestsPresenter implements RequestsContract.Presenter {
   }
 
 
-
   @Override
   public void onRequestItemClick(Request request) {
     //TODO: implement mView.createVacancy() here

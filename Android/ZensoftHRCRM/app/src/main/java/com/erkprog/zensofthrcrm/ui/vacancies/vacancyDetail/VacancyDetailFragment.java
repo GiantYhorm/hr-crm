@@ -22,7 +22,7 @@ import com.erkprog.zensofthrcrm.data.entity.Vacancy;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class VacancyDetailFragment extends Fragment implements VacancyDetailContract.View,View.OnClickListener {
+public class VacancyDetailFragment extends Fragment implements VacancyDetailContract.View, View.OnClickListener {
 
   private static final String EXTRA_VACANCY_ID = "vacancy_id";
 
@@ -130,10 +130,10 @@ public class VacancyDetailFragment extends Fragment implements VacancyDetailCont
   @Override
   public void showVacancyDetails(Vacancy vacancy) {
     if (vacancy.getWorkConditions() != null) {
-      for(final String workingCondition : vacancy.getWorkConditions()){
+      for (final String workingCondition : vacancy.getWorkConditions()) {
         LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams
             .WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        llp.setMargins(20,8,0,0);
+        llp.setMargins(20, 8, 0, 0);
 
         TextView workText = new TextView(getActivity());
         TextView workLabel = new TextView(getActivity());

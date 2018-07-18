@@ -23,6 +23,7 @@ import com.erkprog.zensofthrcrm.data.entity.Candidate;
 import com.erkprog.zensofthrcrm.data.entity.Comment;
 import com.erkprog.zensofthrcrm.data.entity.Cv;
 import com.erkprog.zensofthrcrm.data.entity.Interview;
+import com.erkprog.zensofthrcrm.ui.candidates.candidateDetail.SendEmailCandidate.SendEmailCandidateFragment;
 import com.erkprog.zensofthrcrm.ui.candidates.candidateDetail.editCandidate.EditCandidateFragment;
 import com.erkprog.zensofthrcrm.ui.interviews.createInterview.CreateInterview;
 import com.erkprog.zensofthrcrm.ui.interviews.interviewsList.InterviewsFragment;
@@ -200,7 +201,16 @@ public class CandidateDetailFragment extends Fragment implements CandidateDetail
 
   @Override
   public void startSendMessage(Candidate candidate) {
-
+    SendEmailCandidateFragment sendEmailCandidateFragment = new SendEmailCandidateFragment();
+    Bundle bundle = new Bundle();
+    bundle.putSerializable("candidate", candidate);
+    sendEmailCandidateFragment.setArguments(bundle);
+    FragmentManager fragmentManager = getFragmentManager();
+    if (fragmentManager != null) {
+      FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+      fragmentTransaction.replace(R.id.candidate_detail_container, sendEmailCandidateFragment);
+      fragmentTransaction.commit();
+    }
   }
 
   @Override
@@ -210,7 +220,7 @@ public class CandidateDetailFragment extends Fragment implements CandidateDetail
     bundle.putSerializable("candidate", candidate);
     editFragment.setArguments(bundle);
     FragmentManager fragmentManager = getFragmentManager();
-    if(fragmentManager != null) {
+    if (fragmentManager != null) {
       FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
       fragmentTransaction.replace(R.id.candidate_detail_container, editFragment);
       fragmentTransaction.commit();
@@ -257,7 +267,6 @@ public class CandidateDetailFragment extends Fragment implements CandidateDetail
         showMessage("Delete candidate profile");
         break;
       case R.id.cd_edit_button:
-        //TODO: implement profile editing
         mPresenter.onEditCandidateClicked();
         break;
       case R.id.cd_message_button:

@@ -52,7 +52,7 @@ public class CandidatesFragment extends Fragment implements CandidatesContract.V
 
   private void initPresenter() {
     mPresenter = new CandidatesPresenter(
-        CRMApplication.getInstance(requireContext()).getApiService(),CRMApplication.getInstance
+        CRMApplication.getInstance(requireContext()).getApiService(), CRMApplication.getInstance
         (requireContext()).getSQLiteHelper());
     mPresenter.bind(this);
   }
@@ -115,7 +115,8 @@ public class CandidatesFragment extends Fragment implements CandidatesContract.V
       NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
       return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
-    return false;  }
+    return false;
+  }
 
   @Override
   public void showProgress() {

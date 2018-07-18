@@ -45,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="@string/name"/>
+
         <TextView
             android:id="@+id/v_title_label"
             android:layout_width="match_parent"
@@ -61,6 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="@string/title"/>
+
         <TextView
             android:id="@+id/v_city_label"
             android:layout_width="match_parent"
@@ -77,6 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="@string/city"/>
+
         <TextView
             android:id="@+id/v_address_label"
             android:layout_width="match_parent"
@@ -94,15 +97,16 @@
             android:layout_height="wrap_content"
             tools:text="@string/address"/>
 
-      <LinearLayout
-          android:id="@+id/v_work_conditions_layout"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:background="@color/colorLightBlue"
-          android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/v_work_conditions_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorLightBlue"
+            android:orientation="vertical">
 
-      </LinearLayout>
-     <TextView
+        </LinearLayout>
+
+        <TextView
             android:id="@+id/v_working_hours_label"
             android:layout_width="match_parent"
             android:layout_marginTop="8dp"
@@ -118,6 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="@string/working_hours"/>
+
         <TextView
             android:id="@+id/v_salary_min_label"
             android:layout_width="match_parent"
@@ -134,6 +139,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="@string/salary_min"/>
+
         <TextView
             android:id="@+id/v_salary_max_label"
             android:layout_width="match_parent"
@@ -150,6 +156,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="@string/salary_max"/>
+
         <TextView
             android:id="@+id/v_comments_label"
             android:layout_width="match_parent"
@@ -166,6 +173,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="@string/vcomments"/>
+
         <TextView
             android:id="@+id/v_created_label"
             android:layout_width="match_parent"
@@ -182,6 +190,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="@string/vcreated"/>
+
         <TextView
             android:id="@+id/v_last_published_label"
             android:layout_width="match_parent"
@@ -206,6 +215,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorLightBlue"
             android:orientation="horizontal">
+
           <Button
               android:id="@+id/v_edit"
               style="@style/Widget.AppCompat.Button.Colored"
@@ -213,6 +223,7 @@
               android:layout_height="wrap_content"
               android:layout_marginTop="20dp"
               android:text="@string/btn_edit"/>
+
           <Button
               android:id="@+id/v_publish"
               style="@style/Widget.AppCompat.Button.Colored"

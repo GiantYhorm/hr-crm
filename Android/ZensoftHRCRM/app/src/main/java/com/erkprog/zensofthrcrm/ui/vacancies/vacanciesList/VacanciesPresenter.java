@@ -55,8 +55,8 @@ public class VacanciesPresenter implements VacanciesContract.Presenter {
 
   @Override
   public void getVacanciesLocal() {
-    List<Vacancy> vacancies= mSQLiteHelper.getVacancies();
-    if(vacancies != null)
+    List<Vacancy> vacancies = mSQLiteHelper.getVacancies();
+    if (vacancies != null)
       mView.showVacancies(vacancies);
   }
 

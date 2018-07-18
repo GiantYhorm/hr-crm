@@ -68,10 +68,9 @@ public class VacanciesFragment extends Fragment implements VacanciesContract.Vie
 
     initRecyclerView(v);
     showProgress();
-    if(hasInternetConnection(v.getContext())){
+    if (hasInternetConnection(v.getContext())) {
       mPresenter.getVacanciesInternet();
-    }
-    else{
+    } else {
       mPresenter.getVacanciesLocal();
     }
 
